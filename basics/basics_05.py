@@ -3,9 +3,9 @@
 # Вывести результат на экран
 
 
-text_1 = input("Введите одно любое слово: ")
-text_2 = input("Введите еще одно, любое слово: ")
-text_v1 = f'{text_1} {text_2}'
-print(text_v1)
-text_v2 = f'!{text_2} {text_1}!'
-print(text_v2)
+text = input("Введите два любых слова: ")
+print(text)
+text_a = text.split()
+text_a = text_a[::-1]
+text_a = ' '.join(text_a)
+print(f'! {text_a} !')
