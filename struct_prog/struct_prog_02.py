@@ -4,6 +4,6 @@
 """
 
 x = input("Введите строку: ")
-a = len(x) >= 8 or x in "alex"
+a = len(x) >= 8 or 'Alex' in x
 
 print(a)
