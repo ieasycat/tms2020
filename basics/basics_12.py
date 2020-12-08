@@ -5,4 +5,4 @@
 number_one = int(input("Введите первое число: "))
 number_two = int(input("Введите второе число: "))
 summ = number_one + number_two
-print(number_one, "+", number_two, "=", summ)
+print(f'{number_one} + {number_two} = {summ}')
