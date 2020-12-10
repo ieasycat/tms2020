@@ -6,10 +6,10 @@
 """
 
 text = input("Введите строку: ")
-x = len(text)
-if x > 5:
+text_len = len(text)
+if text_len > 5:
     print(text)
-elif x < 5:
+elif text_len < 5:
     print("Need more!")
 else:
     print("It is five")
