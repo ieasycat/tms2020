@@ -12,4 +12,4 @@ while True:
     summ += int(number)
 
 print(summ)
-print('End')
+print("This's End")
