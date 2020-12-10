@@ -11,5 +11,5 @@ if x > 5:
     print(text)
 elif x < 5:
     print("Need more!")
-elif x == 5:
+else:
     print("It is five")
