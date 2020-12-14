@@ -13,7 +13,7 @@ line = input("Введите строку: ")
 line_center = int(len(line) / 2)
 print(line[line_center])
 if line[line_center] == line[0]:
-    line_new = line[0:len(line)]
+    line_new = line[1:-1]
     print(line_new)
 else:
     print("This's End")
