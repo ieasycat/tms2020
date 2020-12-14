@@ -7,7 +7,7 @@
 
 line = input("Введите строку: ")
 if len(line) > 10:
-    line += '!!!'
-    print(line)
-else:
+    line_new = line + '!!!'
+    print(line_new)
+elif len(line) < 10:
     print(line[1])
