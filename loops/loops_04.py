@@ -11,9 +11,10 @@ while True:
     number = input("Введите число: ")
     if number == 'stop':
         break
-    elif int(number) % 5 == 0:
+    number = int(number)
+    if number % 5 == 0:
         continue
-    summ += int(number)
+    summ += number
 
 print(summ)
 print("This's End")
