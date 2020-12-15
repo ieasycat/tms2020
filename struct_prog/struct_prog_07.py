@@ -10,7 +10,7 @@
 """
 
 line = input("Введите строку: ")
-line_center = int(len(line) / 2)
+line_center = int(len(line) // 2)
 print(line[line_center])
 if line[line_center] == line[0]:
     line_new = line[1:-1]
