@@ -4,12 +4,16 @@
 Создать список из 5 имен. Вызвать функцию для каждого элемента списка в цикле.
 """
 
-name_list = ['Anton', 'Dima', 'Volodya', 'Gleb', 'Katya']
-
 
 def hello(name):
     print(f'Hello, {name}')
 
 
-for name in name_list:
-    hello(name)
+def main():
+    name_list = ['Anton', 'Dima', 'Volodya', 'Gleb', 'Katya']
+    for name in name_list:
+        hello(name)
+
+
+if __name__ == '__main__':
+    main()
