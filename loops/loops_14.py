@@ -28,16 +28,11 @@ pupils = [
   },
 ]
 summ = 0
-tmp = {}
-for i in pupils:
-    tmp = pupils[i]
-    if 'physics' in tmp.keys():
-        a = tmp['physics']
-        if 'informatics' in tmp.keys():
-            b = tmp['informatics']
-            if 'history' in tmp.keys():
-                c = tmp['history']
-    name = tmp['firstname']
+for pupil in pupils:
+    a = pupil['physics']
+    b = pupil['informatics']
+    c = pupil['history']
+    name = pupil['firstname']
     summ = (a + b + c) / 3
     if summ > 4:
         print(f'У {name} средний бал {summ}')
