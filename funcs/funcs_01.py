@@ -11,5 +11,5 @@ def hello(name):
     print(f'Hello, {name}')
 
 
-for i in name_list:
-    hello(i)
+for name in name_list:
+    hello(name)
