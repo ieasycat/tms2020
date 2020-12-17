@@ -7,9 +7,9 @@
 name_list = ['Anton', 'Dima', 'Volodya', 'Gleb', 'Katya']
 
 
-def my_name(name):
+def hello(name):
     print(f'Hello, {name}')
 
 
 for i in name_list:
-    my_name(i)
+    hello(i)
