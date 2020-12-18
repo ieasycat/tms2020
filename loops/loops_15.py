@@ -8,18 +8,28 @@
 """
 from random import randint
 
-a = randint(0, 10)
-count = 3
-for x in range(3):
-    number = int(input("Введите число от 0 до 10: "))
-    if number == a:
-        print("You are the winner")
-        break
-    elif number > a:
-        print("Больше")
-    elif number < a:
-        print("Меньше")
-    count -= 1
-    print(f'Осталось {count} попыток')
-else:
-    print(f'You are the loser, number - {a}')
+
+def game_number():
+    a = randint(0, 10)
+    count = 3
+    for x in range(3):
+        number = int(input("Введите число от 0 до 10: "))
+        if number == a:
+            print("You are the winner")
+            break
+        elif number > a:
+            print("Больше")
+        elif number < a:
+            print("Меньше")
+        count -= 1
+        print(f'Осталось {count} попыток')
+    else:
+        print(f'You are the loser, number - {a}')
+
+
+def main():
+    game_number()
+
+
+if __name__ == '__main__':
+    main()
