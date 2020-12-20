@@ -25,3 +25,15 @@ def my_while(numbers):
         numbers += 1
         replays -= 1
     return listt
+
+
+def main():
+    my_numbers = int(input("Введите число: "))
+    print_for = my_for(my_numbers)
+    print_while = my_while(my_numbers)
+    print(f'Это метод for - {print_for}')
+    print(f'Это метод while - {print_while}')
+
+
+if __name__ == '__main__':
+    main()
