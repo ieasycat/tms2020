@@ -12,8 +12,8 @@ def calculation(numbers):
             my_summ += my_remains
             my_mult *= my_remains
         numbers //= 10
-    print("Сумма:", my_summ)
-    print("Произведение:", my_mult)
+    print("Сумма: ", my_summ)
+    print("Произведение: ", my_mult)
 
 
 def main():
