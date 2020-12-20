@@ -11,6 +11,7 @@ m = int(input("Введите количество раз: "))
 list_one = []
 list_two = []
 count = 0
+numbers = 0
 for i in range(n):
     row = []
     for j in range(m):
@@ -18,8 +19,14 @@ for i in range(n):
     list_one.append(row)
     list_two += list_one[i]
 a = (min(list_two) + max(list_two)) / 2
-list_two = list_two[::2]
-for x in list_two:
+print(list_two)
+for v in range(len(list_two)):
+    for z in range(len(list_two)):
+        if v + z % 2 == 0:
+            numbers += list_two[v]
+    print(numbers)
+# print(list_two)
+"""for x in list_two:
     if x > a:
         count += 1
-print(count)
+print(count)"""
