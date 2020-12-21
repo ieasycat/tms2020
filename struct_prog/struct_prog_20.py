@@ -32,10 +32,11 @@ def replacement(matrix, x):
 
 def main():
     matrix = create(19)
+    print(f'Вот массив - {matrix}')
     max_number = max_matrix(matrix)
     new_matrix = replacement(matrix, max_number)
     print(f"Это максимальное число в масиве - {max_number}")
-    print(f"А это сам масив - {new_matrix}")
+    print(f"А вот измененный масив - {new_matrix}")
 
 
 if __name__ == '__main__':
