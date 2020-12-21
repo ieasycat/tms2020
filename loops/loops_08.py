@@ -8,14 +8,17 @@
 
 def numbers(a, b):
     count = 0
-    if not a > b:
+    if a > b:
+        print("Вы ввели некоректные данные.")
+    else:
         for i in range(a, b + 1):
             count += 1
-            print(i)
-    print(f'Количество чисел между {a} и {b} - {count}')
+            print(i, end=" ")
+        print(f'\nКоличество чисел между {a} и {b} - {count}')
 
 
 def main():
+    print("Введите 2 числа, 1-ое не должно быть больше второго.")
     a = int(input("Введите 1-ое число: "))
     b = int(input("Введите 2-ое число: "))
     numbers(a, b)
