@@ -8,13 +8,13 @@
 
 def numbers(a, b):
     count = 0
-    if a > b:
-        print("Вы ввели некоректные данные.")
-    else:
+    if a < b:
         for i in range(a, b + 1):
             count += 1
             print(i, end=" ")
         print(f'\nКоличество чисел между {a} и {b} - {count}')
+    else:
+        print("Вы ввели некоректные данные.")
 
 
 def main():
