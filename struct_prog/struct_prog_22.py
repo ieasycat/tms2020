@@ -16,7 +16,7 @@ def create_matrix(n, m):
     return list_one
 
 
-def max_matrix(matrix):
+def new_matrix(matrix):
     for i in range(len(matrix)):
         tmp = matrix[i]
         m = 0
@@ -32,10 +32,10 @@ def main():
     print("Введите значения для квадратной матрицы.")
     one_number = int(input("Введите 1-ое число: "))
     two_number = int(input("Введите 2-ое число: "))
-    x = create_matrix(one_number, two_number)
-    print(f'Old matrix - {x}')
-    new_matrix = max_matrix(x)
-    print(f'New matrix - {new_matrix}')
+    print_matrix = create_matrix(one_number, two_number)
+    print(f'Old matrix - {print_matrix}')
+    print_new = new_matrix(print_matrix)
+    print(f'New matrix - {print_new}')
 
 
 if __name__ == '__main__':
