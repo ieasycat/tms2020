@@ -17,27 +17,21 @@ def create_matrix(n, m):
     return matrix
 
 
-def min_matrix(matrix):
-    m = matrix[0][0]
+def count_element(matrix):
+    count = 0
     for row in matrix:
         for elem in row:
-            if elem < m:
-                m = elem
-    return m
+            count += 1
+    return count
 
 
-def max_matrix(matrix):
-    m = matrix[0][0]
+def my_average(matrix, count):
+    summ = 0
     for row in matrix:
         for elem in row:
-            if elem > m:
-                m = elem
-    return m
-
-
-def my_average(a, b):
-    average = (a + b) / 2
-    return average
+            summ += elem
+    avarage = summ / count
+    return avarage
 
 
 def my_summ(matrix):
@@ -62,9 +56,8 @@ def main():
     m = int(input("Введите количество раз: "))
     print_matrix = create_matrix(n, m)
     summ = my_summ(print_matrix)
-    max_number = max_matrix(print_matrix)
-    min_number = min_matrix(print_matrix)
-    average_number = my_average(min_number, max_number)
+    print_element = count_element(print_matrix)
+    average_number = my_average(print_matrix, print_element)
     print_result = result(summ, average_number)
     print(f'Вот матрица: {print_matrix}')
     print(f'Вот среднее арифметическое значение: {average_number}')
