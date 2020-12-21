@@ -9,11 +9,10 @@
 from random import randint
 
 
-def game_number():
-    a = randint(0, 10)
-    count = 3
-    for x in range(3):
-        number = int(input("Введите число от 0 до 10: "))
+def game_number(numb, attempt):
+    a = randint(numb[0], numb[1])
+    for x in range(attempt):
+        number = int(input(f"Введите число от {numb[0]} до {numb[1]}: "))
         if number == a:
             print("You are the winner")
             break
@@ -21,14 +20,19 @@ def game_number():
             print("Больше")
         elif number < a:
             print("Меньше")
-        count -= 1
-        print(f'Осталось {count} попыток')
+        attempt -= 1
+        print(f'Осталось {attempt} попыток')
     else:
         print(f'You are the loser, number - {a}')
 
 
 def main():
-    game_number()
+    print("Введите ниже диапазон угадывания.")
+    one_number = int(input("Введите 1-ое число: "))
+    two_number = int(input("Введите 2-ое число: "))
+    numbers = [one_number, two_number]
+    count = int(input("Введите количество попыток угадывания: "))
+    game_number(numbers, count)
 
 
 if __name__ == '__main__':
