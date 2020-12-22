@@ -17,10 +17,9 @@ def create_matrix(n, m):
 
 
 def new_matrix(matrix):
-    for i in range(len(matrix)):
-        tmp = matrix[i]
+    for i, numbers in enumerate(matrix):
         m = 0
-        for elem in tmp:
+        for elem in numbers:
             if elem > m:
                 m = elem
         matrix[i][i] = m
