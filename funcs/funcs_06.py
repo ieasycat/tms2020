@@ -7,7 +7,7 @@
 
 def sum_and_max(*args):
     summ = 0
-    max_elem = 0
+    max_elem = args[0]
     for arg in args:
         summ += arg
     for elem in args:
@@ -18,6 +18,9 @@ def sum_and_max(*args):
 
 def main():
     pr_summ, pr_max = sum_and_max(3, 4, 8, 10, 3, 5)
+    print(f'Это сумма чисел - {pr_summ}')
+    print(f'А это максимальный элемент {pr_max}')
+    pr_summ, pr_max = sum_and_max(-3, -4, -8, -10, -3, -5)
     print(f'Это сумма чисел - {pr_summ}')
     print(f'А это максимальный элемент {pr_max}')
 
