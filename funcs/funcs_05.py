@@ -8,8 +8,8 @@
 
 def my_summ(*args):
     summ = 0
-    for i in range(len(args)):
-        summ += args[i] * i
+    for elem in range(len(args)):
+        summ += args[elem] * elem
     return summ
 
 
