@@ -12,7 +12,7 @@ def even(**kwargs):
 
 
 def main():
-    even(a='cat', home='book', c='door', driver='var')
+    even(att='cat', home='book', c='door', driver='var')
 
 
 if __name__ == '__main__':
