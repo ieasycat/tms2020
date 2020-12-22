@@ -7,12 +7,12 @@
 
 def even(**kwargs):
     for key, value in kwargs.items():
-        if len(value) % 2 == 0:
+        if len(key) % 2 == 0:
             print(f'Это ключ - {key}, а это его значение - {value}')
 
 
 def main():
-    even(a='cat', b='book', c='door', d='var')
+    even(a='cat', home='book', c='door', driver='var')
 
 
 if __name__ == '__main__':
