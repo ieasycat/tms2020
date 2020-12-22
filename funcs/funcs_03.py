@@ -13,7 +13,7 @@ def my_factorial(numbers):
 
 
 def main():
-    my_numbers = int(input("Введите число, кроме 0: "))
+    my_numbers = int(input("Введите число (кроме 0): "))
     if my_numbers != 0:
         print_fact = my_factorial(my_numbers)
         print(f'Факториал {my_numbers} равен {print_fact}')
