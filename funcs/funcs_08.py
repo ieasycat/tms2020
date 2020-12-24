@@ -24,7 +24,7 @@ def geometric(args):
     print(f'Среднегеометрическое значение равно - {geometric_elem}')
 
 
-def choice(mean_type='geometric', *args):
+def choice(mean_type, *args):
     if mean_type == 'arithmetic':
         arithmetic(args)
     elif mean_type == 'geometric':
@@ -32,7 +32,7 @@ def choice(mean_type='geometric', *args):
 
 
 def main():
-    choice('arithmetic', 2, 4, 6, 9, 10, 11, 7, 12)
+    choice('geometric', 2, 4, 6, 9, 10, 11, 7, 12)
 
 
 if __name__ == '__main__':
