@@ -6,7 +6,7 @@
 """
 
 
-def arithmetic(args):
+def arithmetic(*args):
     arithmetic_elem = 0
     summ = 0
     for elem in args:
@@ -15,7 +15,7 @@ def arithmetic(args):
     print(f'Среднеарифметическое значение равно - {arithmetic_elem}')
 
 
-def geometric(args):
+def geometric(*args):
     geometric_elem = 0
     summ = 1
     for elem in args:
@@ -26,9 +26,9 @@ def geometric(args):
 
 def choice(mean_type, *args):
     if mean_type == 'arithmetic':
-        arithmetic(args)
+        arithmetic(*args)
     elif mean_type == 'geometric':
-        geometric(args)
+        geometric(*args)
 
 
 def main():
