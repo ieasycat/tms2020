@@ -9,9 +9,10 @@ def division(m, n):
         tmp = []
         for divider in range(2, numbers - 1):
             if numbers % divider == 0:
-                tmp.append(divider)
+                tmp.append(str(divider))
+        result = ', '.join(tmp)
         if len(tmp) > 0:
-            print(f'{numbers}: {tmp}')
+            print(f'{numbers}: {result}')
         else:
             print(f'{numbers} - нет делителей')
 
