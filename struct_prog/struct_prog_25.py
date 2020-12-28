@@ -9,7 +9,7 @@
 
 # Из-за этого flake8, который ругаетсян на длинну, надо делать переменные ;(
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 
 def calculation_trains(trains):
@@ -30,23 +30,23 @@ def main():
         {
             'number': '140-139',
             'p_arrival': 'Москва',
-            'arrival time': timedelta(hours=19, minutes=50),
+            'arrival time': datetime(2020, 12, 26, hour=19, minute=50),
             'p_departure': 'Минск',
-            'departure time': timedelta(hours=10, minutes=5),
+            'departure time': datetime(2020, 12, 26, hour=10, minute=5),
         },
         {
             'number': '140-252',
             'p_arrival': 'Гродно',
-            'arrival time': timedelta(hours=14, minutes=50),
+            'arrival time': datetime(2020, 12, 26, hour=14, minute=50),
             'p_departure': 'Минск',
-            'departure time': timedelta(hours=9, minutes=35),
+            'departure time': datetime(2020, 12, 26, hour=9, minute=35),
         },
         {
             'number': '10-115',
             'p_arrival': 'Орша',
-            'arrival time': timedelta(hours=20, minutes=5),
+            'arrival time': datetime(2020, 12, 26, hour=20, minute=5),
             'p_departure': 'Брест',
-            'departure time': timedelta(hours=7, minutes=35),
+            'departure time': datetime(2020, 12, 26, hour=7, minute=35),
         },
     ]
     calculation_trains(trains_listt)
