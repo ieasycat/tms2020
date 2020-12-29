@@ -7,7 +7,7 @@
 def division(m, n):
     for numbers in range(m, n + 1):
         tmp = []
-        for divider in range(2, numbers - 1):
+        for divider in range(2, numbers):
             if numbers % divider == 0:
                 tmp.append(str(divider))
         result = ', '.join(tmp)
