@@ -15,7 +15,7 @@ def sin1(x, eps):
     n = 0
     value = x
     summ = 0
-    while abs(value) > eps:
+    while abs(value) >= eps:
         value = (-1) ** n * x ** (2 * n + 1) / factorial(n)
         n += 1
         summ += value
