@@ -16,14 +16,18 @@ def sin1(x, eps):
     value = x
     summ = 0
     while abs(value) > eps:
-        f = 2 * n + 1
-        new_f = 1
-        for s in range(1, f + 1):
-            new_f *= s
-        value = (-1) ** n * x ** (2 * n + 1) / new_f
+        value = (-1) ** n * x ** (2 * n + 1) / factorial(n)
         n += 1
         summ += value
     return summ
+
+
+def factorial(number):
+    f = 2 * number + 1
+    new_f = 1
+    for s in range(1, f + 1):
+        new_f *= s
+    return new_f
 
 
 def main():
