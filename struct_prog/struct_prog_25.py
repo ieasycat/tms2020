@@ -16,7 +16,7 @@ def calculation_trains(trains):
     for train in trains:
         a = train['arrival time']
         b = train['departure time']
-        if a - b > timedelta(days=0, hours=7, minutes=20):
+        if a - b > timedelta(hours=7, minutes=20):
             print(f"Номер поезда: {train['number']}, "
                   f"следует: {train['p_departure']} - {train['p_arrival']}, "
                   f"время отправления: {b}, "
