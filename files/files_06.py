@@ -15,11 +15,11 @@ def coincidence(one_text, two_text):
                 b = two_files.readline()
                 if not a and not b:
                     break
-                if a == b:
+                if a != b:
+                    return i
+                else:
                     i += 1
                     continue
-                elif a != b:
-                    return i
     return False
 
 
