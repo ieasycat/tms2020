@@ -10,10 +10,6 @@ e) весь файл.
 """
 
 
-def print_txt(text):
-    pass
-
-
 def main():
     my_file = open('files_01')
     print(my_file.readline(), end='')
