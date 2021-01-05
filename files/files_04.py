@@ -25,14 +25,14 @@ def census(old_file, new_file, old_symbol, new_symbol):
 
 def main():
     one_files = 'files_04'
-    two_files = 'new_files_04'
+    two_files = 'files_new_04'
     one_symbol = input('Введите символ, который хотите заменить: ')
     two_symbol = input('Введите символ, на который хотите заменить: ')
     census(one_files, two_files, one_symbol, two_symbol)
     with open('files_04') as my_file:
         pr_old = my_file.read()
         print(f'Старый текст: \n{pr_old}')
-    with open('new_files_04') as my_file:
+    with open('files_new_04') as my_file:
         pr_new = my_file.read()
         print(f'Новый текст: \n{pr_new}')
 
