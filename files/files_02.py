@@ -9,7 +9,6 @@ def write_file():
         for i in range(6):
             line = input('Введите строку: ')
             my_file.write(line + '\n')
-    return my_file
 
 
 def main():
