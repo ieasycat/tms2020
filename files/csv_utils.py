@@ -7,9 +7,9 @@
 import csv
 
 
-def read(file):
+def read(text):
     rows = []
-    with open(file) as csv_file:
+    with open(text) as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             rows.append(row)
@@ -18,34 +18,37 @@ def read(file):
     return fields, data
 
 
-def write(file, fields, row):
-    with open(file, 'w') as csv_file:
+def write(text, fields, row):
+    with open(text, 'w') as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(fields)
         csv_writer.writerows(row)
     return csv_writer
 
 
-def add(file, row, place=-1):
-    fields, data = read(file)
+def add(text, row, place=-1):
+    fields, data = read(text)
     if place == -1:
         data.append(row)
     else:
         data.insert(place - 1, row)
-    write(file, fields, data)
+    write(text, fields, data)
 
 
-def dell(file, place=-1):
-    fields, data = read(file)
+def dell(text, place=-1):
+    fields, data = read(text)
     if place == -1:
         data.pop()
     else:
         data.pop(place - 1)
-    write(file, fields, data)
+    write(text, fields, data)
 
 
 def main():
-    add('text.txt', ['allo', 'mmm'], 2)
+    read()
+    write()
+    add()
+    dell()
 
 
 if __name__ == '__main__':
