@@ -11,7 +11,7 @@ def census(old_file, new_file, old_symbol, new_symbol):
             while True:
                 line = my_file.readline()
                 result = ''
-                if '0' in line or '1' in line:
+                if old_symbol in line or new_symbol in line:
                     for i in line:
                         if i == old_symbol:
                             result += new_symbol
@@ -20,6 +20,8 @@ def census(old_file, new_file, old_symbol, new_symbol):
                         else:
                             result += i
                     my_file_new.writelines(result)
+                else:
+                    my_file_new.writelines(line)
                 if not line:
                     break
 
