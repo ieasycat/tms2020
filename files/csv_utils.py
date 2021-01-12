@@ -45,7 +45,7 @@ def dell(file, place=-1):
 
 
 def main():
-    add('text.txt', 'allo', 2)
+    add('text.txt', ['allo', 'mmm'], 2)
 
 
 if __name__ == '__main__':
