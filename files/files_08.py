@@ -28,7 +28,7 @@ def dell_poz(text):
 
 
 def main():
-    file = 'files_08.txt'
+    file = 'files_08.csv'
     create_file(file)
     name, info = csv_utils.read(file)
     print(f'Заголовок - {name}')
