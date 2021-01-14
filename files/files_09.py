@@ -23,7 +23,7 @@ def write_new_file(new_file, fields, row):
 def my_summ(info):
     summ = 0
     for i, number in enumerate(info):
-        tmp = int(info[i][1])
+        tmp = int(info[i][1]) * int(info[i][2])
         summ += tmp
     return summ
 
