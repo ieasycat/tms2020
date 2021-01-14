@@ -29,7 +29,7 @@ def report(file, info):
     count = [0, 0, 0, 0, 0]
     age_group = []
     for i, text in enumerate(info):
-        age_group.append(info[i][2])
+        age_group.append(text[2])
     for i in age_group:
         if 1 <= int(i) <= 12:
             count[0] += 1
