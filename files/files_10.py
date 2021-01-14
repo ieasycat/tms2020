@@ -20,7 +20,7 @@ def create_file(file):
 
 def report(file, info):
     title = [
-        'Возрастная группа 1-12',
+        'Возрастная группа 1-12:',
         'Возрастная группа 13-18:',
         'Возрастная группа 19-25:',
         'Возрастная группа 26-40:',
@@ -41,7 +41,7 @@ def report(file, info):
             count[3] += 1
         else:
             count[4] += 1
-    count = [str(i) for i in count]
+    count = [[str(i) for i in count]]
     write(file, title, count)
 
 
