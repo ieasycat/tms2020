@@ -26,22 +26,22 @@ def report(file, info):
         'Возрастная группа 26-40:',
         'Возрастная группа 40+:'
     ]
-    count = [0, 0, 0, 0, 0]
+    count = {'1-12': 0, '13-18': 0, '19-25': 0, '26-40': 0, '40+': 0}
     age_group = []
     for i, text in enumerate(info):
         age_group.append(text[2])
     for i in age_group:
         if 1 <= int(i) <= 12:
-            count[0] += 1
+            count['1-12'] += 1
         elif 13 <= int(i) <= 18:
-            count[1] += 1
+            count['13-18'] += 1
         elif 19 <= int(i) <= 25:
-            count[2] += 1
+            count['19-25'] += 1
         elif 26 <= int(i) <= 40:
-            count[3] += 1
+            count['26-40'] += 1
         else:
-            count[4] += 1
-    count = [[str(i) for i in count]]
+            count['40+'] += 1
+    count = [[str(k) for i, k in count.items()]]
     write(file, title, count)
 
 
