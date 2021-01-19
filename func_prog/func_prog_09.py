@@ -7,7 +7,7 @@
 
 def main():
     listt = [f'{i} - {k}'
-             for i, k in enumerate(['Alo', 'Hello', 'Man', 'Good'])]
+             for i, k in enumerate(['Alo', 'Hello', 'Man', 'Good'], 1)]
     print(listt)
 
 
