@@ -77,6 +77,8 @@ def main():
     dog_1 = Dog('Arni', 3, 1, 20, "I'm")
     # oop_08
     print(dog_1.name)
+    dog_1.name = 'Big Arni'
+    print(dog_1.name)
 
 
 if __name__ == '__main__':
