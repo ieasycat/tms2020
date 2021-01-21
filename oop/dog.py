@@ -9,23 +9,59 @@ class Dog:
         print('Jump!')
 
     def __init__(self, name, age, height, weight, master, address='Minsk'):
-        self.name = name
-        self.age = age
-        self.height = height
-        self.weight = weight
+        self.__name = name
+        self.__age = age
+        self.__height = height
+        self.__weight = weight
         self.__master = master
         self.__address = address
 
-    def change_name(self, name):
-        self.name = name
+    @property
+    def name(self):
+        return self.__name
 
-    def get_master(self):
+    @name.setter
+    def name(self, name):
+        self.__name = name
+
+    @property
+    def age(self):
+        return self.__age
+
+    @age.setter
+    def age(self, age):
+        self.__age = age
+
+    @property
+    def height(self):
+        return self.__height
+
+    @height.setter
+    def height(self, height):
+        self.__height = height
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self, weight):
+        self.__weight = weight
+
+    @property
+    def master(self):
         return self.__master
 
-    def get_address(self):
+    @master.setter
+    def master(self, master):
+        self.__master = master
+
+    @property
+    def address(self):
         return self.__address
 
-    def set_address(self, address):
+    @address.setter
+    def address(self, address):
         self.__address = address
 
 
@@ -38,22 +74,9 @@ def main():
     dog.bark()
     dog.run()
     dog.jump()
-    # oop_04
     dog_1 = Dog('Arni', 3, 1, 20, "I'm")
-    print(f'Name Dog: {dog_1.name}')
-    print(f'Age Dog: {dog_1.age}')
-    print(f'Height Dog: {dog_1.height}')
-    print(f'Weight Dog: {dog_1.weight}')
-    # oop_05
-    print(f'Name Dog: {dog_1.name}')
-    dog_1.change_name('Big Arni')
-    print(f'Name Dog: {dog_1.name}')
-    # oop_06
-    print(f'Master Dog: {dog_1.get_master()}')
-    # oop_07
-    print(f'Address Dog: {dog_1.get_address()}')
-    dog_1.set_address('London')
-    print(f'Address Dog: {dog_1.get_address()}')
+    # oop_08
+    print(dog_1.name)
 
 
 if __name__ == '__main__':
