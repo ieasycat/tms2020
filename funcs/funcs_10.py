@@ -4,7 +4,7 @@
 
 
 def calc(n):
-    return (n ** 1/2 + n) / 2
+    return (n ** 0.5 + n) / 2
 
 
 def main():
