@@ -57,7 +57,7 @@ class Printers:
 
     @type_printers.setter
     def type_printers(self, type_printers):
-        self.__type_printers == type_printers
+        self.__type_printers = type_printers
 
     @property
     def color(self):
