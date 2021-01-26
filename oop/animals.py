@@ -1,6 +1,10 @@
 """
-Переопределить методы change_weight, change_height в классе Parrot.
-В случае не передачи параметра - вес изменяется на 0.05
+Добавить метод jump, принимающий высоту прыжка.
+Метод выводит сообщение “Jump X meters”
+Переопределить метод jump в дочерних классах.
+Если передать методу jump класса dog значение больше 0.5,
+выводить сообщение “Dogs cannot jump so high,
+аналогично для кошек(2), для попугаев(0.05)
 """
 
 
@@ -15,8 +19,8 @@ class Pet:
     def run(self):
         print('Run!')
 
-    def jump(self):
-        print('Jump!')
+    def jump(self, jump):
+        print(f'Jump {jump} meters')
 
     def birthday(self):
         self.age += 1
@@ -32,16 +36,34 @@ class Pet:
 
 
 class Dog(Pet):
+    def jump(self, high):
+        if high > 0.5:
+            print('Dogs cannot jump so high')
+        else:
+            super().jump(high)
+
     def bark(self):
         print('Bark!')
 
 
 class Cat(Pet):
+    def jump(self, high):
+        if high > 2:
+            print('Cats cannot jump so high')
+        else:
+            super().jump(high)
+
     def meow(self):
         print('Meow!')
 
 
 class Parrot(Pet):
+    def jump(self, high):
+        if high > 0.05:
+            print('Parrot cannot jump so high')
+        else:
+            super().jump(high)
+
     def change_weight(self, weight=0.05):
         self.weight += weight
 
@@ -56,12 +78,11 @@ class Parrot(Pet):
 
 
 def main():
-    not_my_parrot = Parrot('Lise', 5, 'Dima', 0.01, 1.5)
-    not_my_parrot.fly()
-    print(not_my_parrot.height)
-    not_my_parrot.change_height()
-    print(not_my_parrot.height)
-    not_my_parrot.sleep()
+    my_cat = Cat('Barsik', 10, 'Anton', 4, 3)
+    my_cat.run()
+    my_cat.meow()
+    my_cat.jump(1)
+    my_cat.jump(3)
 
 
 if __name__ == '__main__':
