@@ -9,7 +9,7 @@ from functools import wraps
 def my_decorator(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        kwargs = {key: value[::-1] for key, value in kwargs.items()}
+        # kwargs = {key: value[::-1] for key, value in kwargs.items()}
         result = func((*args[::-1], kwargs))
         return result
     return wrapper
