@@ -9,8 +9,8 @@ from functools import wraps
 def my_decorator(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        args = (args[0][::-1])
-        result = func(args, **kwargs)
+        kwargs = {key: value[::-1] for key, value in kwargs.items()}
+        result = func((*args[::-1], kwargs))
         return result
     return wrapper
 
@@ -21,8 +21,7 @@ def my_funcs(words):
 
 
 def main():
-    my_words = ['Ася', 'Python', 'World', 'Бывает']
-    pr = my_funcs(my_words)
+    pr = my_funcs('Ася', 'Python', 'World', 'Бывает', a='Test', b='Trash')
     print(pr)
 
 
