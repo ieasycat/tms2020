@@ -61,18 +61,6 @@ class Parrot(Pet):
 
 
 def main():
-    my_cat = Cat('Barsik', 10, 'Anton', 5, 2)
-    print(my_cat.height)
-    my_cat.change_height(1)
-    print(my_cat.height)
-    my_cat.change_height()
-    print(my_cat.height)
-    my_cat.run()
-    my_cat.meow()
-    my_dog = Dog('Alex', 3, 'Alex', 9, 4)
-    my_dog.run()
-    my_dog.jump()
-    my_dog.bark()
     not_my_parrot = Parrot('Lise', 5, 'Dima', 0.01, 1.5)
     not_my_parrot.fly()
     print(not_my_parrot.height)
