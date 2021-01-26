@@ -73,7 +73,9 @@ def main():
     my_dog.run()
     my_dog.jump()
     my_dog.bark()
-    not_my_parrot = Parrot('Lise', 5, 'Dima', 0.11, 1.5)
+    not_my_parrot = Parrot('Lise', 5, 'Dima', 0.01, 1.5)
+    not_my_parrot.fly()
+    not_my_parrot.change_weight(1)
     not_my_parrot.fly()
     not_my_parrot.sleep()
 
