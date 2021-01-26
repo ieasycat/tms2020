@@ -43,9 +43,9 @@ class Parrot(Pet):
 
 
 def main():
-    a = Cat('Barsik', 10, 'Anton')
-    a.run()
-    a.meow()
+    my_cat = Cat('Barsik', 10, 'Anton')
+    my_cat.run()
+    my_cat.meow()
 
 
 if __name__ == '__main__':
