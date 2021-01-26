@@ -10,10 +10,8 @@ from functools import wraps
 def my_decorator(func):
     @wraps(func)
     def wrapper(my_number):
-        for i in my_number:
-            if i % 2 == 0:
-                my_number.pop(my_number.index(i))
-        result = func(my_number)
+        new_listt = [i for i in my_number if i % 2 != 0]
+        result = func(new_listt)
         return result
     return wrapper
 
