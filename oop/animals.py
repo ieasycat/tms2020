@@ -29,17 +29,11 @@ class Pet:
     def sleep(self):
         print('Sleep!')
 
-    def change_weight(self, weight=None):
-        if weight:
-            self.weight += weight
-        else:
-            self.weight += 0.2
+    def change_weight(self, weight=0.2):
+        self.weight += weight
 
-    def change_height(self, height=None):
-        if height:
-            self.height += height
-        else:
-            self.height += 0.2
+    def change_height(self, height=0.2):
+        self.height += height
 
 
 class Dog(Pet):
@@ -53,6 +47,12 @@ class Cat(Pet):
 
 
 class Parrot(Pet):
+    def change_weight(self, weight=0.05):
+        self.weight += weight
+
+    def change_height(self, height=0.05):
+        self.height += height
+
     def fly(self):
         if self.weight > 0.1:
             print('This parrot cannot fly.')
@@ -75,8 +75,9 @@ def main():
     my_dog.bark()
     not_my_parrot = Parrot('Lise', 5, 'Dima', 0.01, 1.5)
     not_my_parrot.fly()
-    not_my_parrot.change_weight(1)
-    not_my_parrot.fly()
+    print(not_my_parrot.height)
+    not_my_parrot.change_height()
+    print(not_my_parrot.height)
     not_my_parrot.sleep()
 
 
