@@ -6,17 +6,18 @@
 """
 
 
-def palindrome(word):
-    return word == word[::-1]
+def palindrome(words):
+    for word in words:
+        if word == word[::-1]:
+            return True
+        else:
+            return False
 
 
 def main():
     words = 'лол', 'привет', 'река'
-    for word in words:
-        if palindrome(word):
-            print(f'{word} - является палиндромом')
-        else:
-            print(f'{word} - не является палиндромом')
+    pr_palindrome = palindrome(words)
+    print(pr_palindrome)
 
 
 if __name__ == '__main__':

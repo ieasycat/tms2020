@@ -12,7 +12,7 @@ def arithmetic(*args):
     for elem in args:
         summ += elem
     arithmetic_elem = summ / len(args)
-    print(f'Среднеарифметическое значение равно - {arithmetic_elem}')
+    return arithmetic_elem
 
 
 def geometric(*args):
@@ -21,14 +21,15 @@ def geometric(*args):
     for elem in args:
         summ *= elem
     geometric_elem = summ ** (1/len(args))
-    print(f'Среднегеометрическое значение равно - {geometric_elem}')
+    return geometric_elem
 
 
 def choice(mean_type, *args):
     if mean_type == 'arithmetic':
-        arithmetic(*args)
+        print(f'Среднеарифметическое значение равно - {arithmetic(*args)}')
+
     elif mean_type == 'geometric':
-        geometric(*args)
+        print(f'Среднегеометрическое значение равно - {geometric(*args)}')
 
 
 def main():
