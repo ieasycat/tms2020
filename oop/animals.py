@@ -8,74 +8,44 @@ birthday(увеличивает age на 1), sleep.
 """
 
 
-class Dog:
+class Pet:
     def __init__(self, name, age, master):
         self.name = name
         self.age = age
         self.master = master
 
     def run(self):
-        print('Run Dog!')
+        print('Run!')
 
     def jump(self):
-        print('Jump Dog')
+        print('Jump!')
 
     def birthday(self):
         self.age += 1
 
     def sleep(self):
-        print('Sleep Dog')
+        print('Sleep!')
 
+
+class Dog(Pet):
     def bark(self):
-        print('Bark')
+        print('Bark!')
 
 
-class Cat:
-    def __init__(self, name, age, master):
-        self.name = name
-        self.age = age
-        self.master = master
-
-    def run(self):
-        print('Run Cat!')
-
-    def jump(self):
-        print('Jump Cat')
-
-    def birthday(self):
-        self.age += 1
-
+class Cat(Pet):
     def meow(self):
-        print('Meow')
-
-    def sleep(self):
-        print('Sleep Cat')
+        print('Meow!')
 
 
-class Parrot:
-    def __init__(self, name, age, master):
-        self.name = name
-        self.age = age
-        self.master = master
-
-    def run(self):
-        print('Run Parrot!')
-
-    def jump(self):
-        print('Jump Parrot')
-
-    def birthday(self):
-        self.age += 1
-
-    def sleep(self):
-        print('Sleep Parrot')
-
+class Parrot(Pet):
     def fly(self):
-        print('Fly')
+        print('Fly!')
 
 
 def main():
-    pass
+    a = Cat('Barsik', 10, 'Anton')
+    a.run()
+    a.meow()
 
 
 if __name__ == '__main__':
