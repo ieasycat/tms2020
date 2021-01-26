@@ -19,8 +19,8 @@ class Pet:
     def run(self):
         print('Run!')
 
-    def jump(self, jump):
-        print(f'Jump {jump} meters')
+    def jump(self, high):
+        print(f'Jump {high} meters')
 
     def birthday(self):
         self.age += 1
