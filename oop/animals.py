@@ -1,18 +1,21 @@
 """
-Создать файл animals.py.
-Создать три класса: Dog, Cat, Parrot.
-Атрибуты каждого класса: name, age, master.
-Каждый класс содержит конструктор и методы: run, jump,
-birthday(увеличивает age на 1), sleep.
-Класс Parrot имеет дополнительный метод fly. Cat - meow, Dog - bark.
+Добавить два новых атрибута в родительский класс: weight и height.
+Добавить методы change_weight, change_height принимающий один параметр
+и прибавляющий его к соответствующему аргументу.
+В случае если параметр не был передан, увеличивать на 0.2.
+Изменить метод fly класса Parrot. Если вес больше 0.1
+выводить сообщение This parrot cannot fly.
+
 """
 
 
 class Pet:
-    def __init__(self, name, age, master):
+    def __init__(self, name, age, master, weight, height):
         self.name = name
         self.age = age
         self.master = master
+        self.weight = weight
+        self.height = height
 
     def run(self):
         print('Run!')
@@ -25,6 +28,18 @@ class Pet:
 
     def sleep(self):
         print('Sleep!')
+
+    def change_weight(self, weight=None):
+        if weight:
+            self.weight += weight
+        else:
+            self.weight += 0.2
+
+    def change_height(self, height=None):
+        if height:
+            self.height += height
+        else:
+            self.height += 0.2
 
 
 class Dog(Pet):
@@ -39,18 +54,26 @@ class Cat(Pet):
 
 class Parrot(Pet):
     def fly(self):
-        print('Fly!')
+        if self.weight > 0.1:
+            print('This parrot cannot fly.')
+        else:
+            print('Fly!')
 
 
 def main():
-    my_cat = Cat('Barsik', 10, 'Anton')
+    my_cat = Cat('Barsik', 10, 'Anton', 5, 2)
+    print(my_cat.height)
+    my_cat.change_height(1)
+    print(my_cat.height)
+    my_cat.change_height()
+    print(my_cat.height)
     my_cat.run()
     my_cat.meow()
-    my_dog = Dog('Alex', 3, 'Alex')
+    my_dog = Dog('Alex', 3, 'Alex', 9, 4)
     my_dog.run()
     my_dog.jump()
     my_dog.bark()
-    not_my_parrot = Parrot('Lise', 5, 'Dima')
+    not_my_parrot = Parrot('Lise', 5, 'Dima', 0.11, 1.5)
     not_my_parrot.fly()
     not_my_parrot.sleep()
 
