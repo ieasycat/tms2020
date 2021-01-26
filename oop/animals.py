@@ -1,10 +1,9 @@
 """
-Добавить метод jump, принимающий высоту прыжка.
-Метод выводит сообщение “Jump X meters”
-Переопределить метод jump в дочерних классах.
-Если передать методу jump класса dog значение больше 0.5,
-выводить сообщение “Dogs cannot jump so high,
-аналогично для кошек(2), для попугаев(0.05)
+Добавить в класс Pet пустой метод voice.
+Заменить имена методов bark, meow на voice.
+Добавить voice для класса Parrot.
+Создать функцию, принимающая список животных и
+вызывающая у каждого животного метод voice.
 """
 
 
@@ -34,6 +33,9 @@ class Pet:
     def change_height(self, height=0.2):
         self.height += height
 
+    def voice(self):
+        pass
+
 
 class Dog(Pet):
     def jump(self, high):
@@ -42,7 +44,7 @@ class Dog(Pet):
         else:
             super().jump(high)
 
-    def bark(self):
+    def voice(self):
         print('Bark!')
 
 
@@ -53,11 +55,15 @@ class Cat(Pet):
         else:
             super().jump(high)
 
-    def meow(self):
+    def voice(self):
         print('Meow!')
 
 
 class Parrot(Pet):
+    def __init__(self, name, age, master, weight, height, species):
+        super(Parrot, self).__init__(name, age, master, weight, height)
+        self.species = species
+
     def jump(self, high):
         if high > 0.05:
             print('Parrot cannot jump so high')
@@ -76,13 +82,21 @@ class Parrot(Pet):
         else:
             print('Fly!')
 
+    def voice(self):
+        print('AAaaAaaAaA')
+
+
+def voice_challenge(list_animals):
+    for i in list_animals:
+        i.voice()
+
 
 def main():
-    my_cat = Cat('Barsik', 10, 'Anton', 4, 3)
-    my_cat.run()
-    my_cat.meow()
-    my_cat.jump(1)
-    my_cat.jump(3)
+    my_cat = Cat('Barsik', 7, 'Dima', 8, 3)
+    my_dog = Dog('Bobik', 6, 'Oleg', 8, 4)
+    not_my_parrot = Parrot('Alex', 3, 'Anton', 0.5, 1, 'Phoenix')
+    animals = [my_cat, my_dog, not_my_parrot]
+    voice_challenge(animals)
 
 
 if __name__ == '__main__':
