@@ -7,12 +7,15 @@
 
 
 class Pet:
+    __counter = 0
+
     def __init__(self, name, age, master, weight, height):
         self.name = name
         self.age = age
         self.master = master
         self.weight = weight
         self.height = height
+        Pet.__counter += 1
 
     def run(self):
         print('Run!')
