@@ -1,7 +1,9 @@
 """
-Создать метод класса get_counter.
-Создать три объекта класса. Вызвать через класс метод get_counter.
+Создать статичный метод get_random_name для класса Pet.
+Метод возвращает случайную строку вида A-42.
 """
+import string
+from random import choice, randint
 
 
 class Pet:
@@ -19,6 +21,7 @@ class Pet:
     def get_counter(cls):
         return cls.__counter
 
+    @staticmethod
     def run(self):
         print('Run!')
 
@@ -28,6 +31,7 @@ class Pet:
     def birthday(self):
         self.age += 1
 
+    @staticmethod
     def sleep(self):
         print('Sleep!')
 
@@ -50,6 +54,12 @@ class Pet:
 
     def __ne__(self, other):
         return not self == other
+
+    @staticmethod
+    def get_random_name():
+        return f'{choice(string.ascii_lowercase)}-' \
+               f'{randint(0, 9)}' \
+               f'{randint(0, 9)}'
 
 
 class Dog(Pet):
@@ -125,7 +135,7 @@ def main():
     Mule('Ia', 4, 'Alex', 3, 3)
     Mule('Freek', 4, 'Dima', 4, 3)
     Mule('Freek', 4, 'Olya', 3, 3)
-    print(Pet.get_counter())
+    print(Pet.get_random_name())
 
 
 if __name__ == '__main__':
