@@ -1,7 +1,6 @@
 """
-Добавить в класс Pet атрибут counter = 0,
-значение которого увеличивается при создании любого объекта.
-Сделать атрибут counter приватным.
+Создать метод класса get_counter.
+Создать три объекта класса. Вызвать через класс метод get_counter.
 """
 
 
@@ -15,6 +14,10 @@ class Pet:
         self.weight = weight
         self.height = height
         Pet.__counter += 1
+
+    @classmethod
+    def get_counter(cls):
+        return cls.__counter
 
     def run(self):
         print('Run!')
@@ -119,12 +122,10 @@ class Mule(Donkey, Horse):
 
 
 def main():
-    not_my_mule = Mule('Ia', 4, 'Alex', 3, 3)
-    not_my_mule_2 = Mule('Freek', 4, 'Dima', 4, 3)
-    not_my_mule_3 = Mule('Freek', 4, 'Olya', 3, 3)
-    print(not_my_mule == not_my_mule_3)
-    print(not_my_mule_2 != not_my_mule_3)
-    not_my_mule.voice()
+    Mule('Ia', 4, 'Alex', 3, 3)
+    Mule('Freek', 4, 'Dima', 4, 3)
+    Mule('Freek', 4, 'Olya', 3, 3)
+    print(Pet.get_counter())
 
 
 if __name__ == '__main__':
