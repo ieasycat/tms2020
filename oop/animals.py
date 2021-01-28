@@ -1,6 +1,5 @@
 """
-Создать статичный метод get_random_name для класса Pet.
-Метод возвращает случайную строку вида A-42.
+Сделать класс Pet абстрактным
 """
 import string
 from random import choice, randint
