@@ -4,9 +4,10 @@
 """
 import string
 from random import choice, randint
+from abc import ABC, abstractmethod
 
 
-class Pet:
+class Pet(ABC):
     __counter = 0
 
     def __init__(self, name, age, master, weight, height):
@@ -41,6 +42,7 @@ class Pet:
     def change_height(self, height=0.2):
         self.height += height
 
+    @abstractmethod
     def voice(self):
         pass
 
@@ -136,6 +138,7 @@ def main():
     Mule('Freek', 4, 'Dima', 4, 3)
     Mule('Freek', 4, 'Olya', 3, 3)
     print(Pet.get_random_name())
+    # error = Pet('Zaika', 3, 'Riki', 3, 3)
 
 
 if __name__ == '__main__':
