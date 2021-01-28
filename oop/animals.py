@@ -1,9 +1,8 @@
 """
-Добавить в класс Pet пустой метод voice.
-Заменить имена методов bark, meow на voice.
-Добавить voice для класса Parrot.
-Создать функцию, принимающая список животных и
-вызывающая у каждого животного метод voice.
+Унаследовать от класса Pet два класса: Horse, Donkey.
+Переопределить в классах методы voice.
+Создать класс Mule.
+Метод voice должен быть унаследован от класса Donkey
 """
 
 
@@ -91,12 +90,24 @@ def voice_challenge(list_animals):
         i.voice()
 
 
+class Horse(Pet):
+    def voice(self):
+        print('Igogo')
+
+
+class Donkey(Pet):
+    def voice(self):
+        print('Iaiaia')
+
+
+class Mule(Donkey, Horse):
+    def voice(self):
+        super(Mule, self).voice()
+
+
 def main():
-    my_cat = Cat('Barsik', 7, 'Dima', 8, 3)
-    my_dog = Dog('Bobik', 6, 'Oleg', 8, 4)
-    not_my_parrot = Parrot('Alex', 3, 'Anton', 0.5, 1, 'Phoenix')
-    animals = [my_cat, my_dog, not_my_parrot]
-    voice_challenge(animals)
+    not_my_mule = Mule('Ia', 4, 'Alex', 3, 3)
+    not_my_mule.voice()
 
 
 if __name__ == '__main__':
