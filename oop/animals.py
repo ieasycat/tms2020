@@ -35,6 +35,17 @@ class Pet:
     def voice(self):
         pass
 
+    def __eq__(self, other):
+        return all(
+            [self.age == other.age,
+             self.weight == other.weight,
+             self.height == other.height,
+             type(self) == type(other)]
+        )
+
+    def __ne__(self, other):
+        return not self == other
+
 
 class Dog(Pet):
     def jump(self, high):
@@ -107,6 +118,10 @@ class Mule(Donkey, Horse):
 
 def main():
     not_my_mule = Mule('Ia', 4, 'Alex', 3, 3)
+    not_my_mule_2 = Mule('Freek', 4, 'Dima', 4, 3)
+    not_my_mule_3 = Mule('Freek', 4, 'Olya', 3, 3)
+    print(not_my_mule == not_my_mule_3)
+    print(not_my_mule_2 != not_my_mule_3)
     not_my_mule.voice()
 
 
