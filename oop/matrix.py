@@ -51,15 +51,3 @@ class Matrix:
             for elem in row:
                 summ += elem
         return summ
-
-
-def main():
-    my_matrix = Matrix([], 3, 3, 1, 9)
-    print(my_matrix)
-    print(my_matrix.max_elem_for_matrix)
-    print(my_matrix.min_elem_for_matrix)
-    print(my_matrix.summ_elem_for_matrix)
-
-
-if __name__ == '__main__':
-    main()
