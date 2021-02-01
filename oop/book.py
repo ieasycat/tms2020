@@ -14,6 +14,14 @@ class Book:
         self.year_of_publication = year_of_publication
         self.author = author
         self.price = price
+        if self.number_of_pages <= 0:
+            raise ErrorInThePage
+        if self.year_of_publication > 2021:
+            raise ErrorInTheYear
+        if self.author == '':
+            raise ErrorInTheAuthor
+        if self.price < 0:
+            raise ErrorInThePrice
 
     def __str__(self):
         return f'{self.number_of_pages}, ' \
@@ -43,33 +51,8 @@ class ErrorInThePrice(Exception):
 
 
 def main():
-    number_of_pages = int(input('Введите количество страниц в книге: '))
-    if number_of_pages <= 0:
-        raise ErrorInThePage
-    year_of_publication = int(input('Введите год издания книги: '))
-    if year_of_publication > 2021:
-        raise ErrorInTheYear
-    author = input('Введите автора книги: ')
-    if author == '':
-        raise ErrorInTheAuthor
-    price = int(input('Введите цену книги: '))
-    if price < 0:
-        raise ErrorInThePrice
-    my_book = Book(number_of_pages,
-                   year_of_publication,
-                   author,
-                   price)
+    my_book = Book(-1, 1992, 'Anton', 500)
     print(my_book)
-    my_book_2 = Book(-1, 1992, 'Anton', 500)
-    if my_book_2.number_of_pages <= 0:
-        raise ErrorInThePage
-    if my_book_2.year_of_publication > 2021:
-        raise ErrorInTheYear
-    if my_book_2.author == '':
-        raise ErrorInTheAuthor
-    if my_book_2.price < 0:
-        raise ErrorInThePrice
-    print(my_book_2)
 
 
 if __name__ == '__main__':
