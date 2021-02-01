@@ -6,6 +6,7 @@
 Создать иерархию ошибок.
 Ошибки вызываются при попытке создания не правильного объекта.
 """
+from datetime import datetime
 
 
 class Book:
@@ -14,9 +15,10 @@ class Book:
         self.year_of_publication = year_of_publication
         self.author = author
         self.price = price
+        now = datetime.now()
         if self.number_of_pages <= 0:
             raise ErrorInThePage
-        if self.year_of_publication > 2021:
+        if self.year_of_publication > now.year:
             raise ErrorInTheYear
         if self.author == '':
             raise ErrorInTheAuthor
@@ -51,7 +53,7 @@ class ErrorInThePrice(Exception):
 
 
 def main():
-    my_book = Book(-1, 1992, 'Anton', 500)
+    my_book = Book(1, 1992, 'Anton', 500)
     print(my_book)
 
 
