@@ -16,7 +16,7 @@ from random import randint
 
 
 class Matrix:
-    def __init__(self, data, n=5, m=5, a=0, b=0):
+    def __init__(self, n=5, m=5, a=0, b=0):
         self.data = [[randint(a, b) for i in range(m)]for row in range(n)]
         self.n = n
         self.m = m
@@ -24,30 +24,39 @@ class Matrix:
         self.b = b
 
     def __str__(self):
-        return f'{self.data}'
-
-    @property
-    def max_elem_for_matrix(self):
-        max_elem = self.data[0][0]
         for row in self.data:
-            for elem in row:
-                if elem > max_elem:
-                    max_elem = elem
-        return max_elem
+            print(row)
 
-    @property
-    def min_elem_for_matrix(self):
-        min_elem = self.data[0][0]
-        for row in self.data:
-            for elem in row:
-                if elem < min_elem:
-                    min_elem = elem
-        return min_elem
 
-    @property
-    def summ_elem_for_matrix(self):
-        summ = 0
-        for row in self.data:
-            for elem in row:
-                summ += elem
-        return summ
+def max_elem_for_matrix(matrix):
+    max_elem = matrix[0][0]
+    for row in matrix:
+        for elem in row:
+            if elem > max_elem:
+                max_elem = elem
+    return max_elem
+
+
+def min_elem_for_matrix(matrix):
+    min_elem = matrix[0][0]
+    for row in matrix:
+        for elem in row:
+            if elem < min_elem:
+                min_elem = elem
+    return min_elem
+
+
+def summ_elem_for_matrix(matrix):
+    summ = 0
+    for row in matrix:
+        for elem in row:
+            summ += elem
+    return summ
+
+
+def main():
+    pass
+
+
+if __name__ == '__main__':
+    main()
