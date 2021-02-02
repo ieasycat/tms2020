@@ -12,16 +12,20 @@
 
 class MyTime:
     def __init__(self, *args):
-        if args != () and type(args[0]) == int:
+        if len(args) > 1 and type(args[0]) == int:
             self.hours = args[0]
             self.minutes = args[1]
             self.seconds = args[2]
-        elif args != () and type(args[0]) == str:
+        elif len(args) == 1 and type(args[0]) == int:
+            self.hours = 0
+            self.minutes = 0
+            self.seconds = args[0]
+        elif len(args) >= 1 and type(args[0]) == str:
             time = args[0].split('-')
             self.hours = int(time[0])
             self.minutes = int(time[1])
             self.seconds = int(time[2])
-        elif args != () and type(args[0]) == MyTime:
+        elif len(args) >= 1 and type(args[0]) == MyTime:
             self.hours = args[0].hours
             self.minutes = args[0].minutes
             self.seconds = args[0].seconds
