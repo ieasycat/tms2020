@@ -24,13 +24,12 @@ class Matrix:
         self.b = b
 
     def __str__(self):
-        for row in self.data:
-            print(row)
+        return '\n'.join(str(i) for i in self.data)
 
 
 def max_elem_for_matrix(matrix):
-    max_elem = matrix[0][0]
-    for row in matrix:
+    max_elem = matrix.data[0][0]
+    for row in matrix.data:
         for elem in row:
             if elem > max_elem:
                 max_elem = elem
@@ -38,8 +37,8 @@ def max_elem_for_matrix(matrix):
 
 
 def min_elem_for_matrix(matrix):
-    min_elem = matrix[0][0]
-    for row in matrix:
+    min_elem = matrix.data[0][0]
+    for row in matrix.data:
         for elem in row:
             if elem < min_elem:
                 min_elem = elem
@@ -48,7 +47,7 @@ def min_elem_for_matrix(matrix):
 
 def summ_elem_for_matrix(matrix):
     summ = 0
-    for row in matrix:
+    for row in matrix.data:
         for elem in row:
             summ += elem
     return summ
