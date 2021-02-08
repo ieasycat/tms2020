@@ -16,3 +16,9 @@ First name: Anton
 Last name: Klimenka
 Time to focus: 5, time to pause: 25, cycle: 1
 
+Date: 8.2.2021
+Time: 17:12:40
+First name: Anton
+Last name: Klimenka
+Time to focus: 1, time to pause: 1, cycle: 1
+

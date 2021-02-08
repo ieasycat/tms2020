@@ -12,6 +12,7 @@
 """
 import sys
 import argparse
+import time
 from datetime import datetime
 
 
@@ -28,7 +29,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '-t',
-    '--time',
+    '--times',
 )
 parser.add_argument(
     '-p',
@@ -40,21 +41,23 @@ parser.add_argument(
 )
 args = parser.parse_args()
 if len(sys.argv) == 5:
-    time, pause, cycle = args.time, args.pause, args.cycle = 25, 5, 4
+    times, pause, cycle = args.times, args.pause, args.cycle = 25, 5, 4
 else:
-    time, pause, cycle = int(args.time), int(args.pause), int(args.cycle)
+    times, pause, cycle = int(args.times), int(args.pause), int(args.cycle)
 print(f'There will be: {cycle} cycles.\n')
 for i in range(1, cycle+1):
-    print(time, 'minutes to focus.')
-    seconds = time * 60
+    print(times, 'minutes to focus.')
+    seconds = times * 60
     while seconds >= 0:
         seconds -= 1
+        time.sleep(1)
     print('End of focus.\n')
 
     print(pause, 'minutes for a pause.')
     seconds = pause * 60
     while seconds >= 0:
         seconds -= 1
+        time.sleep(1)
     print('End of pause.')
 
     print(f'\nEnd of {i} cycle.\n')
@@ -66,7 +69,7 @@ with open('/home/tms/PycharmProjects/tms2020/'
                   f'Time: {now.hour}:{now.minute}:{now.second}\n'
                   f'First name: {args.first_name}\n'
                   f'Last name: {args.last_name}\n'
-                  f'Time to focus: {args.time}, '
+                  f'Time to focus: {args.times}, '
                   f'time to pause: {args.pause}, '
                   f'cycle: {args.cycle}\n\n')
 
