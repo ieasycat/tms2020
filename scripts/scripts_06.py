@@ -13,6 +13,7 @@ ALARM!!!
 
 import argparse
 from datetime import datetime
+import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -48,6 +49,8 @@ while seconds >= 0:
     second = seconds % 60
     print(f'{hours}:{minutes}:{second}')
     seconds -= 1
+    time.sleep(1)
+print("It's Finish!")
 
 with open('/home/tms/PycharmProjects/tms2020/'
           'scripts/log_scripts_06.txt', 'a') as my_file:
