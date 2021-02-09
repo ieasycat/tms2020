@@ -1,0 +1,24 @@
+Date: 5.2.2021
+Time: 16:39:5
+First name: Anton
+Last name: Klimenka
+Time to focus: 25, Time to pause: 5, Cycle: 4
+
+Date: 5.2.2021
+Time: 16:40:23
+First name: Anton
+Last name: Klimenka
+Time to focus: 20, time to pause: 5, cycle: 2
+
+Date: 5.2.2021
+Time: 16:45:30
+First name: Anton
+Last name: Klimenka
+Time to focus: 5, time to pause: 25, cycle: 1
+
+Date: 8.2.2021
+Time: 17:12:40
+First name: Anton
+Last name: Klimenka
+Time to focus: 1, time to pause: 1, cycle: 1
+
