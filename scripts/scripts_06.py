@@ -30,19 +30,22 @@ parser.add_argument(
     '-H',
     '--hours',
     required=True,
+    type=int,
 )
 parser.add_argument(
     '-m',
     '--minutes',
     required=True,
+    type=int,
 )
 parser.add_argument(
     '-s',
     '--seconds',
     required=True,
+    type=int,
 )
 args = parser.parse_args()
-seconds = int(args.hours) * 3600 + int(args.minutes) * 60 + int(args.seconds)
+seconds = args.hours * 3600 + args.minutes * 60 + args.seconds
 while seconds >= 0:
     hours = seconds // 3600
     minutes = seconds // 60 % 60
