@@ -16,3 +16,6 @@ INSERT INTO Book (id, title, pages, author, price, release_year) VALUES
 (4, 'Harry Potter 3', 799, 'Diana', 700.19, 2012),
 (5, 'Harry Potter 4', 809, 'Diana', 725.09, 2014),
 (6, 'Harry Potter 5', 909, 'Diana', 745.99, 2016);
+
+
+SELECT release_year, title, price FROM Book 
