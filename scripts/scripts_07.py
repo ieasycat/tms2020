@@ -10,7 +10,6 @@
 после сигнализирует о начале нового цикла фокусировки.
 Программа должна вести файл лога о всех запусках.
 """
-import sys
 import argparse
 import time
 from datetime import datetime
@@ -30,20 +29,23 @@ parser.add_argument(
 parser.add_argument(
     '-t',
     '--times',
+    default=25,
+    type=int,
 )
 parser.add_argument(
     '-p',
     '--pause',
+    default=5,
+    type=int,
 )
 parser.add_argument(
     '-c',
     '--cycle',
+    default=4,
+    type=int
 )
 args = parser.parse_args()
-if len(sys.argv) == 5:
-    times, pause, cycle = args.times, args.pause, args.cycle = 25, 5, 4
-else:
-    times, pause, cycle = int(args.times), int(args.pause), int(args.cycle)
+times, pause, cycle = args.times, args.pause, args.cycle
 print(f'There will be: {cycle} cycles.\n')
 for i in range(1, cycle+1):
     print(times, 'minutes to focus.')
