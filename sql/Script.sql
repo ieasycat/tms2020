@@ -18,4 +18,6 @@ INSERT INTO Book (id, title, pages, author, price, release_year) VALUES
 (6, 'Harry Potter 5', 909, 'Diana', 745.99, 2016);
 
 
-SELECT release_year, title, price FROM Book 
+SELECT release_year, title, price FROM Book;
+
+SELECT release_year, title, price FROM Book WHERE release_year = 2010;
