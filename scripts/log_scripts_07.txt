@@ -28,3 +28,10 @@ First name: Anton
 Last name: Klimenka
 Time to focus: 1, time to pause: 1, cycle: 1
 
+Date: 9.2.2021
+Time: 19:57:7
+First name: Anton
+Last name: Klimenka
+My task: Work
+Time to focus: 1, time to pause: 1, cycle: 1
+

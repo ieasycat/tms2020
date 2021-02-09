@@ -28,6 +28,11 @@ parser.add_argument(
     required=True,
 )
 parser.add_argument(
+    '-T',
+    '--task',
+    required=True,
+)
+parser.add_argument(
     '-t',
     '--times',
     default=25,
@@ -70,9 +75,10 @@ with open(file, 'a') as my_file:
                   f'Time: {now.hour}:{now.minute}:{now.second}\n'
                   f'First name: {args.first_name}\n'
                   f'Last name: {args.last_name}\n'
+                  f'My task: {args.task}\n'
                   f'Time to focus: {args.times}, '
                   f'time to pause: {args.pause}, '
                   f'cycle: {args.cycle}\n\n')
 
-# Вызов (python scripts/scripts_07.py -fn Anton -ln Klimenka -t 5 -p 25 -c 1)
-# Вызов по умочланию (python scripts/scripts_07.py -fn Anton -ln Klimenka)
+# (python scripts/scripts_07.py -fn Anton -ln Klimenka -T Work -t 5 -p 25 -c 1)
+# По умочланию (python scripts/scripts_07.py -fn Anton -ln Klimenka -T Work)
