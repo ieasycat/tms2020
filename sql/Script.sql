@@ -23,3 +23,5 @@ SELECT release_year, title, price FROM Book;
 SELECT release_year, title, price FROM Book WHERE release_year = 2010;
 
 UPDATE  Book set price = 10 WHERE release_year = 2010;
+
+DELETE FROM Book WHERE price > 10;
