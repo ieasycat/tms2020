@@ -13,6 +13,7 @@
 import argparse
 import time
 from datetime import datetime
+import os
 
 
 parser = argparse.ArgumentParser()
@@ -60,8 +61,10 @@ for i in range(1, cycle+1):
 
     print(f'\nEnd of {i} cycle.\n')
 
-with open('/home/tms/PycharmProjects/tms2020/'
-          'scripts/log_scripts_07.txt', 'a') as my_file:
+file_path = os.path.relpath(__file__)
+dir_name = os.path.dirname(file_path)
+file = os.path.join(dir_name, 'log_scripts_07.txt')
+with open(file, 'a') as my_file:
     now = datetime.now()
     my_file.write(f'Date: {now.day}.{now.month}.{now.year}\n'
                   f'Time: {now.hour}:{now.minute}:{now.second}\n'
