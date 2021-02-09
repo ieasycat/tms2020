@@ -6,4 +6,5 @@ CREATE TABLE Book (
 	price float
 );
 
-	
+
+ALTER TABLE Book ADD COLUMN release_year int;
