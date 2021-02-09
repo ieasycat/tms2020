@@ -48,16 +48,12 @@ print(f'There will be: {cycle} cycles.\n')
 for i in range(1, cycle+1):
     print(times, 'minutes to focus.')
     seconds = times * 60
-    while seconds >= 0:
-        seconds -= 1
-        time.sleep(1)
+    time.sleep(seconds)
     print('End of focus.\n')
 
     print(pause, 'minutes for a pause.')
     seconds = pause * 60
-    while seconds >= 0:
-        seconds -= 1
-        time.sleep(1)
+    time.sleep(seconds)
     print('End of pause.')
 
     print(f'\nEnd of {i} cycle.\n')
