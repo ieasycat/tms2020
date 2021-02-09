@@ -14,6 +14,7 @@ ALARM!!!
 import argparse
 from datetime import datetime
 import time
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -55,8 +56,10 @@ while seconds >= 0:
     time.sleep(1)
 print("It's Finish!")
 
-with open('/home/tms/PycharmProjects/tms2020/'
-          'scripts/log_scripts_06.txt', 'a') as my_file:
+file_path = os.path.relpath(__file__)
+dir_name = os.path.dirname(file_path)
+file = os.path.join(dir_name, 'log_scripts_06.txt')
+with open(file, 'a') as my_file:
     now = datetime.now()
     my_file.write(f'Date: {now.day}.{now.month}.{now.year}\n'
                   f'Time: {now.hour}:{now.minute}:{now.second}\n'
