@@ -1,7 +1,7 @@
 """
 Создать файл sqlalchemy_02.py.
 Создать соединение к базе sa_test.db.
-Создать 5 книг с помощью sqlalchemy.
+Создать 5 книг с помощью my_sqlalchemy.
 """
 
 from sqlalchemy import create_engine

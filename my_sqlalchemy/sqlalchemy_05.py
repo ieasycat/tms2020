@@ -1,7 +1,7 @@
 """
 Создать файл book.py.
 Создать базу book.db.
-Создать таблицу Book с помощью механизма описания таблиц sqlalchemy.
+Создать таблицу Book с помощью механизма описания таблиц my_sqlalchemy.
 Атрибуты: id(integer primary key), title(varchar), pages(int),
 author(varchar), price(float), release_year(int)
 """
