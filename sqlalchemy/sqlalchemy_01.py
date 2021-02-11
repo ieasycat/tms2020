@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 
-my = create_engine('sqlite:///test.db')
+my = create_engine('sqlite:///sa_test.db')
 my.execute("""
     create table Book (
         id integer primary key,
