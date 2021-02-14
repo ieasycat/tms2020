@@ -10,16 +10,7 @@ from sqlalchemy import create_engine
 
 
 def create_db(title, pages, author):
-    my_db = create_engine('sqlite:///my_book.db')
-    my_db.execute("""
-        create table Book (
-            id integer primary key,
-            title varchar,
-            pages int,
-            author varchar
-            );
-    """)
-
+    my_db = create_engine('sqlite:///book.db')
     conn = my_db.connect()
     trans = conn.begin()
     conn.execute(f"""
@@ -31,15 +22,16 @@ def create_db(title, pages, author):
         ('{title}', {pages}, '{author}')
     """)
 
-    result = conn.execute("""select * from Book""")
+    result = conn.execute(f"""select * from Book where title = '{title}'""")
     for book in result:
         print(book)
 
     voice = (input('Сохранить? ')).lower()
-    if 'да' or 'yes' in voice:
+    if 'да' in voice:
         trans.commit()
     else:
-        conn.close()
+        trans.rollback()
+    conn.close()
 
 
 def main():
