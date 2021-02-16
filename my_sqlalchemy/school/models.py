@@ -9,7 +9,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship, sessionmaker
 
 DB_USER = 'postgres'
 DB_PASS = 'postgres'
@@ -35,4 +36,23 @@ class Group(Base):
         self.name = name
 
 
+class Student(Base):
+    __tablename__ = 'student'
+    id = Column(Integer, primary_key=True)
+    firstname = Column(String)
+    lastname = Column(String)
+    group_id = Column(Integer,
+                      ForeignKey('group.id'),
+                      nullable=False,
+                      )
+
+    group = relationship(
+        'Group',
+        foreign_keys='Student.group_id',
+        backref='students',
+        )
+
+
 Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
