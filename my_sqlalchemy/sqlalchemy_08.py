@@ -5,15 +5,16 @@
 Если таких книг нет - вывести сообщение: Not found.
 """
 
-from my_sqlalchemy.book import Books, session
 from sqlalchemy import and_
+
+from my_sqlalchemy.book import Books, session
 
 one = int(input('Введите с какого года начать фильтрацию: '))
 two = int(input('Введите по какой года закончить фильтрацию: '))
 
 books = session.query(Books).filter(and_(Books.release_year >= one,
-                                         Books.release_year <= two))
-if len(list(books)) > 0:
+                                         Books.release_year <= two)).all()
+if books:
     for book in books:
         print(f'Title book: {book.title}, '
               f'pages book: {book.pages}, '
