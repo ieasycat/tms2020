@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, sessionmaker
+from sqlalchemy.orm import relationship, sessionmaker, backref
 
 DB_USER = 'postgres'
 DB_PASS = 'postgres'
@@ -51,6 +51,28 @@ class Student(Base):
         foreign_keys='Student.group_id',
         backref='students',
         )
+
+    def __str__(self):
+        return f'{self.id}, {self.firstname}, {self.lastname}, {self.group_id}'
+
+
+class Diary(Base):
+    __tablename__ = 'diary'
+    id = Column(Integer, primary_key=True)
+    average_score = Column(Integer)
+    student_id = Column(
+        Integer,
+        ForeignKey('student.id'),
+        nullable=False,
+    )
+    student = relationship(
+        'Student',
+        foreign_keys='Diary.student_id',
+        backref=backref('diary', uselist=False)
+    )
+
+    def __str__(self):
+        return f'{self.id}, {self.average_score}, {self.student_id}'
 
 
 Base.metadata.create_all(engine)
