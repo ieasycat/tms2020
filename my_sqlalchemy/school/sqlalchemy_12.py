@@ -7,7 +7,3 @@ for student in students:
     diary = Diary(average_score=(randint(4, 9)), student=student)
     session.add(diary)
 session.commit()
-
-pr_diarys = session.query(Diary).all()
-for pr_diary in pr_diarys:
-    print(pr_diary)
