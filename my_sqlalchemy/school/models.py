@@ -9,7 +9,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy_utils import create_database, database_exists
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Table, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship, sessionmaker, backref
 
 DB_USER = 'postgres'
@@ -73,6 +73,27 @@ class Diary(Base):
 
     def __str__(self):
         return f'{self.id}, {self.average_score}, {self.student_id}'
+
+
+association_table = Table(
+    'association',
+    Base.metadata,
+    Column('id', Integer, primary_key=True),
+    Column('student_id', Integer, ForeignKey('student.id')),
+    Column('book_id', Integer, ForeignKey('book.id')),
+)
+
+
+class Book(Base):
+    __tablename__ = 'book'
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    pages = Column(Integer)
+    students = relationship(
+        'Student',
+        secondary=association_table,
+        backref='books'
+    )
 
 
 Base.metadata.create_all(engine)
