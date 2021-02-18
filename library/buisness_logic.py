@@ -9,8 +9,7 @@ def create_book(title, pages, author, price, release_year):
 
 def read_books():
     books = session.query(Books).all()
-    for book in books:
-        print(book)
+    return books
 
 
 def update_book(book_id, new_values):
@@ -31,8 +30,7 @@ def del_book(book_id):
 
 def filter_books(filter_author):
     filters = session.query(Books).filter_by(author=filter_author)
-    for my_filter in filters:
-        print(my_filter)
+    return filters
 
 
 def main():

@@ -17,7 +17,9 @@ def functionality():
               'Если хотите выйти, нажмите "0".\n')
         count = int(input('Ваш выбор: '))
         if count == 1:
-            read_books()
+            books = read_books()
+            for book in books:
+                print(book)
             print()
 
         elif count == 2:
@@ -49,7 +51,12 @@ def functionality():
 
         elif count == 5:
             author = input('Введите имя автора: ')
-            filter_books(author)
+            filters = filter_books(author)
+            if len(list(filters)) > 0:
+                for my_filter in filters:
+                    print(my_filter)
+            else:
+                print('Такого автора нет.')
             print()
 
         elif count == 0:
