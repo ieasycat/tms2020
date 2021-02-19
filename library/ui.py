@@ -1,5 +1,6 @@
 from library.buisness_logic import\
     create_book, read_books, update_book, del_book, filter_books
+from library.book import Books
 
 
 class MyException(Exception):
@@ -33,11 +34,16 @@ def functionality():
 
         elif count == 3:
             book_id = int(input('Введите ID книги, которую хотите изменить: '))
-            my_title = input('Введите название книги: ')
-            my_pages = int(input('Введите кол-во страниц в книге: '))
-            my_author = input('Введите имя автора книги: ')
-            my_price = float(input('Введите ценну книги: '))
-            my_release_year = int(input('Введите год издания книги: '))
+            my_title = input('Введите название книги: ') \
+                or Books.title
+            my_pages = input('Введите кол-во страниц в книге: ') \
+                or Books.pages
+            my_author = input('Введите имя автора книги: ') \
+                or Books.author
+            my_price = input('Введите ценну книги: ') \
+                or Books.price
+            my_release_year = input('Введите год издания книги: ') \
+                or Books.release_year
             update_book(book_id, {'title': my_title, 'pages': my_pages,
                                   'author': my_author, 'price': my_price,
                                   'release_year': my_release_year})
@@ -51,6 +57,7 @@ def functionality():
 
         elif count == 5:
             author = input('Введите имя автора: ')
+            print()
             filters = filter_books(author)
             if len(list(filters)) > 0:
                 for my_filter in filters:
