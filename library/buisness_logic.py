@@ -1,8 +1,13 @@
 from library.book import Books, session
 
 
-def create_book(title, pages, author, price, release_year):
-    book = Books(title, pages, author, price, release_year)
+class MyException(Exception):
+    def __init__(self, message='Такого выбора нет!'):
+        super(MyException, self).__init__(message)
+
+
+def create_book(values):
+    book = Books(**values)
     session.add(book)
     session.commit()
 
