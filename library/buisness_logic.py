@@ -1,9 +1,24 @@
 from library.book import Books, session
 
 
-class MyException(Exception):
+class WrongChoice(Exception):
     def __init__(self, message='Такого выбора нет!'):
-        super(MyException, self).__init__(message)
+        super(WrongChoice, self).__init__(message)
+
+
+class NameErrorBook(Exception):
+    def __init__(self, message='Данная книга уже есть!'):
+        super(NameErrorBook, self).__init__(message)
+
+
+class NameErrorAuthor(Exception):
+    def __init__(self, message='Такого автора нет!'):
+        super(NameErrorAuthor, self).__init__(message)
+
+
+class IdErrorBook(Exception):
+    def __init__(self, message='Такого ID нет!'):
+        super(IdErrorBook, self).__init__(message)
 
 
 def create_book(values):

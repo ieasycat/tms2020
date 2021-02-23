@@ -1,5 +1,6 @@
 from library.buisness_logic import \
-    create_book, read_books, update_book, del_book, filter_books, MyException
+    create_book, read_books, update_book, del_book, filter_books, \
+    WrongChoice, NameErrorBook, NameErrorAuthor, IdErrorBook
 from library.book import Books, session
 
 
@@ -13,13 +14,9 @@ def display_books():
 def crete_books():
     title = input('Введите название книги: ')
 
-    check = session.query(Books.title).filter_by(title=title)
+    check = session.query(Books.title).filter_by(title=title).first()
 
-    for book in check:
-        pass
-    if title in book.title:
-        print('Данная книга уже есть.')
-    else:
+    if not check:
         pages = int(input('Введите кол-во страниц в книге: '))
         author = input('Введите имя автора книги: ')
         price = float(input('Введите ценну книги: '))
@@ -29,21 +26,18 @@ def crete_books():
                      'author': author,
                      'price': price,
                      'release_year': release_year})
+    else:
+        raise NameErrorBook
     print()
 
 
 def change_book():
     book_id = int(input('Введите ID книги, которую хотите изменить: '))
-    my_title = input('Введите название книги: ') \
-        or Books.title
+    my_title = input('Введите название книги: ')
 
-    check = session.query(Books.title).filter_by(title=my_title)
+    check = session.query(Books.title).filter_by(title=my_title).first()
 
-    for book in check:
-        pass
-    if my_title in book.title:
-        print('Данная книга уже есть.')
-    else:
+    if not check:
         my_pages = input('Введите кол-во страниц в книге: ') \
                    or Books.pages
         my_author = input('Введите имя автора книги: ') \
@@ -55,13 +49,19 @@ def change_book():
         update_book(book_id, {'title': my_title, 'pages': my_pages,
                               'author': my_author, 'price': my_price,
                               'release_year': my_release_year})
+    else:
+        raise NameErrorBook
     print()
 
 
 def del_books():
     book_id = int(
         input('Введите ID колонки, которую хотите удалить: '))
-    del_book(book_id)
+    check = session.query(Books.title).filter_by(id=book_id).first()
+    if check:
+        del_book(book_id)
+    else:
+        raise IdErrorBook
     print()
 
 
@@ -73,7 +73,7 @@ def filters_books():
         for my_filter in filters:
             print(my_filter)
     else:
-        print('Такого автора нет.')
+        raise NameErrorAuthor
     print()
 
 
@@ -83,7 +83,7 @@ def functionality():
               'Если хотите добавить запись в таблицу, нажмите "2".\n'
               'Если хотите изменить запись, нажмите "3".\n'
               'Если хотите удалить запись, нажмите "4".\n'
-              'Если хотите отфильровать запись, нажмите "5".\n'
+              'Если хотите отфильтровать запись, нажмите "5".\n'
               'Если хотите выйти, нажмите "0".\n')
         count = int(input('Ваш выбор: '))
         if count == 1:
@@ -97,11 +97,11 @@ def functionality():
         elif count == 5:
             filters_books()
         elif count == 0:
-            print('Выход')
+            print('\nВыход')
             break
 
         else:
-            raise MyException
+            raise WrongChoice
 
 
 def main():
