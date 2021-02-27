@@ -140,53 +140,57 @@ def del_brand():
 
 
 def functionality_car():
-    print('\nЕсли хотите просмотреть таблицу, выберите "1".\n'
-          'Если хотите добавить запись в таблицу, выберите "2".\n'
-          'Если хотите изменить запись в таблице, выберите "3".\n'
-          'Если хотите удалить запись в таблице, выберите "4".\n'
-          'Если хотите вернуться в предыдущее меню, выберите "0".\n')
-    count = int(input('Ваш выбор: '))
-    if count == 1:
-        display_car()
-    elif count == 2:
-        add_car()
-    elif count == 3:
-        print()
-        display_car()
-        change_car()
-    elif count == 4:
-        print()
-        display_car()
-        del_car()
-    elif count == 0:
-        return
-    else:
-        raise WrongChoice
+    while True:
+        print('\nЕсли хотите просмотреть таблицу, выберите "1".\n'
+              'Если хотите добавить запись в таблицу, выберите "2".\n'
+              'Если хотите изменить запись в таблице, выберите "3".\n'
+              'Если хотите удалить запись в таблице, выберите "4".\n'
+              'Если хотите вернуться в предыдущее меню, выберите "0".\n')
+        count = int(input('Ваш выбор: '))
+        if count == 1:
+            display_car()
+        elif count == 2:
+            add_car()
+        elif count == 3:
+            print()
+            display_car()
+            change_car()
+        elif count == 4:
+            print()
+            display_car()
+            del_car()
+        elif count == 0:
+            print('Выход в предыдущее меню.')
+            break
+        else:
+            raise WrongChoice
 
 
 def functionality_brand():
-    print('\nЕсли хотите просмотреть таблицу, выберите "1".\n'
-          'Если хотите добавить запись в таблицу, выберите "2".\n'
-          'Если хотите изменить запись в таблице, выберите "3".\n'
-          'Если хотите удалить запись в таблице, выберите "4".\n'
-          'Если хотите вернуться в предыдущее меню, выберите "0".\n')
-    count = int(input('Ваш выбор: '))
-    if count == 1:
-        display_brand()
-    elif count == 2:
-        add_brand()
-    elif count == 3:
-        print()
-        display_brand()
-        change_brand()
-    elif count == 4:
-        print()
-        display_brand()
-        del_brand()
-    elif count == 0:
-        return
-    else:
-        raise WrongChoice
+    while True:
+        print('\nЕсли хотите просмотреть таблицу, выберите "1".\n'
+              'Если хотите добавить запись в таблицу, выберите "2".\n'
+              'Если хотите изменить запись в таблице, выберите "3".\n'
+              'Если хотите удалить запись в таблице, выберите "4".\n'
+              'Если хотите вернуться в предыдущее меню, выберите "0".\n')
+        count = int(input('Ваш выбор: '))
+        if count == 1:
+            display_brand()
+        elif count == 2:
+            add_brand()
+        elif count == 3:
+            print()
+            display_brand()
+            change_brand()
+        elif count == 4:
+            print()
+            display_brand()
+            del_brand()
+        elif count == 0:
+            print('Выход в предыдущее меню.')
+            break
+        else:
+            raise WrongChoice
 
 
 def functionality_all():
