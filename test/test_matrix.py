@@ -21,6 +21,11 @@ class MatrixTestCase(unittest.TestCase):
         self.assertEqual(data.a, 0)
         self.assertEqual(data.b, 0)
 
+    def test_str(self):
+        data = self.matrix
+        pr = data.__str__()
+        self.assertEqual(pr, '[0, 0]\n[0, 0]\n[0, 0]')
+
 
 class MethodsTestCase(unittest.TestCase):
     def setUp(self):
