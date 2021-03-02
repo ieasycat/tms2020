@@ -8,11 +8,12 @@
 на страницу отображения всех групп.
 """
 
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template, url_for, \
+    redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///school.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///school.db'
 db = SQLAlchemy(app)
 
 
