@@ -1,0 +1,20 @@
+First name: Dima
+Last name: Lomako
+Old: 25
+
+First name: Anton
+Last name: Klimenka
+Old: 28
+
+First name: Roman
+Last name: Loiko
+Old: 29
+
+First name: Sergey
+Last name: Bikovskii
+Old: 28
+
+First name: Natal'ya
+Last name: Klimenka
+Old: 54
+
