@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <table border=1>
+        <tr>
+            <td>id</td>
+            <td>fullname</td>
+        </tr>
+        {% for group in groups %}
+        <tr>
+            <td>{{ group.id }}</td>
+            <td>{{ group.fullname }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('create_group') }}">CREATE</a>
+</body>
+</html>
