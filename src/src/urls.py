@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1.views import time
+from app1.views import time, to_pow
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', time, name='time')
+    path('', time, name='time'),
+    path('two_pow/<int:number>', to_pow, name='two_pow')
 ]

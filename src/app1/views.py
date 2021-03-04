@@ -11,3 +11,7 @@ def time(request):
     mounts = time_now.month
     years = time_now.year
     return HttpResponse(f'{days}-{mounts}-{years}')
+
+
+def to_pow(request, number):
+    return HttpResponse(f'{number * 2}')
