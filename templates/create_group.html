@@ -5,7 +5,7 @@
     <title>Main</title>
 </head>
 <body>
-    <form action="http://localhost:8000/create_group" method="post">
+    <form action="{{ url_for('create_group') }}" method="post">
         <p>Enter you first name</p>
         <p><input type="text" name="first_name"></p>
         <p><input type="submit" value="Enter"></p>
