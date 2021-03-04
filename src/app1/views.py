@@ -14,4 +14,4 @@ def time(request):
 
 
 def to_pow(request, number):
-    return HttpResponse(f'{number * 2}')
+    return HttpResponse(f'{number ** 2}')
