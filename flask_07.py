@@ -42,7 +42,3 @@ def create_group():
         return redirect(url_for('info'))
     else:
         return render_template('create_group.html')
-
-
-if __name__ == '__main__':
-    app.run(port=8000)
