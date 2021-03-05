@@ -23,4 +23,5 @@ urlpatterns = [
     path('two_pow/<int:number>', to_pow, name='two_pow'),
     path('', include('django_03.urls')),
     path('', include('django_04.urls')),
+    path('', include('django_05.urls')),
 ]
