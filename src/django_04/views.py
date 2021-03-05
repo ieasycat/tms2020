@@ -16,5 +16,3 @@ def info(request):
                                  f'Last name: {last_name}\n'
                                  f'Old: {old}\n\n'])
     return HttpResponse(response)
-
-# return HttpResponse(f'Welcome {first_name} {last_name}')
