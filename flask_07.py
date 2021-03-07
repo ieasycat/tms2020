@@ -26,7 +26,7 @@ db.init_app(app)
 db.create_all()
 
 
-@app.route('/info', methods=['GET'])
+@app.route('/info')
 def info():
     groups = Group.query.all()
     return render_template('display_all.html', groups=groups)
@@ -58,10 +58,9 @@ def change_group(my_id):
         return render_template('change_group.html', group=group)
 
 
-@app.route('/del_group/<int:my_id>', methods=['GET'])
+@app.route('/del_group/<int:my_id>')
 def del_group(my_id):
-    if request.method == "GET":
-        Group.query.filter(Group.id == my_id).delete()
-        db.session.commit()
-        db.session.close()
-        return redirect(url_for('info'))
+    Group.query.filter(Group.id == my_id).delete()
+    db.session.commit()
+    db.session.close()
+    return redirect(url_for('info'))
