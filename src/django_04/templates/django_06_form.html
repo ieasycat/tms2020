@@ -2,12 +2,7 @@
 {% block title %} Full form {% endblock %}
 {% block content %}
     <form action="/full_form" method="post">
-        <p>Enter you First Name</p>
-        <p><input type="text" name="firstname"></p>
-        <p>Enter you Last Name</p>
-        <p><input type="text" name="lastname"></p>
-        <p>Enter you Old</p>
-        <p><input type="number" name="old"></p>
+        {{ form.as_p }}
         <p><input type="submit" value="Enter"></p>
     </form>
 {% endblock %}

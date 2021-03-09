@@ -21,10 +21,9 @@ def info(request):
 
 
 def full_form(request):
-    template = loader.get_template('django_06_form.html')
-    response = template.render({}, request)
     if request.method == 'GET':
-        return HttpResponse(response)
+        context = {'form': UserForm()}
+        return render(request, 'django_06_form.html', context)
     else:
         form = UserForm(request.POST)
         if form.is_valid():
