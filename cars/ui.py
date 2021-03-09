@@ -24,6 +24,18 @@ def display_brand():
     print()
 
 
+def check_car():
+    model = input('Введите модель машины: ')
+    check = session.query(Car.model).filter_by(model=model).first()
+    return check, model
+
+
+def check_brand():
+    name = input('Введите название бренда: ')
+    check = session.query(Brand).filter_by(name=name).first()
+    return check, name
+
+
 def add_car():
     check, model = check_car()
 
@@ -40,18 +52,6 @@ def add_car():
     else:
         raise WrongName
     print()
-
-
-def check_car():
-    model = input('Введите модель машины: ')
-    check = session.query(Car.model).filter_by(model=model).first()
-    return check, model
-
-
-def check_brand():
-    name = input('Введите название бренда: ')
-    check = session.query(Brand).filter_by(name=name).first()
-    return check, name
 
 
 def add_brand():
