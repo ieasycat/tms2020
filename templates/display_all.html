@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
+<style>
+    body {
+    background : url(https://lh3.googleusercontent.com/proxy/bpoKueiiV4MEiYXLZt4Isn00VMNGPukUhobikFZ8gMwEPR1wZFvbBipUj1Y_Fciy8JaYUZ58NsCekNlCQVv1jB3gW0_m9xKIHKzn782QNPb1M0IVFA),
+    url(https://lh3.googleusercontent.com/proxy/PalRxtCRIPGy0_Zeb1UdVdxtC96n9xPDTfNrmgEnVbh8EZu6Epw_iA_EWZ8iwCdUhltVn3Y9hmm0vsOUGqd2WSWJ26YkCh465ZzWJg);
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll;
+    background-position: 0% 0%, 100% 0%;
+    }
+</style>
 <body>
-    <table border=1>
-        <tr>
-            <td>id</td>
-            <td>fullname</td>
-        </tr>
-        {% for group in groups %}
-        <tr>
-            <td>{{ group.id }}</td>
-            <td>{{ group.fullname }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ url_for('create_group') }}">CREATE</a>
+    <div align="center">
+        <table border=1>
+            <tr>
+                <td><div align="center">Id</div></td>
+                <td><div align="center">Fullname</div></td>
+                <td><div align="center">Other</div></td>
+            </tr>
+            {% for group in groups %}
+            <tr>
+                <td><div align="center">{{ group.id }}</div></td>
+                <td><div align="center">{{ group.fullname }}</div></td>
+                <td>
+                    <form action="{{ url_for('change_group', my_id = group.id) }}">
+                        <button>Change</button>
+                    </form>
+                    <form action="{{ url_for('del_group', my_id = group.id) }}">
+                        <button>Del</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p></p>
+        <form action="{{ url_for('create_group') }}">
+            <button>Create new group</button>
+        </form>
+    </div>
 </body>
 </html>

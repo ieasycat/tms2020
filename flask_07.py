@@ -26,7 +26,7 @@ db.init_app(app)
 db.create_all()
 
 
-@app.route('/info', methods=['GET'])
+@app.route('/info')
 def info():
     groups = Group.query.all()
     return render_template('display_all.html', groups=groups)
@@ -35,10 +35,32 @@ def info():
 @app.route('/create_group', methods=['POST', 'GET'])
 def create_group():
     if request.method == "POST":
-        first_name = request.form.get('first_name')
-        group = Group(fullname=first_name)
+        fullname = request.form.get('fullname')
+        group = Group(fullname=fullname)
         db.session.add(group)
         db.session.commit()
+        db.session.close()
         return redirect(url_for('info'))
     else:
         return render_template('create_group.html')
+
+
+@app.route('/change_group/<int:my_id>', methods=['POST', 'GET'])
+def change_group(my_id):
+    group = Group.query.filter(Group.id == my_id).first()
+    if request.method == 'POST':
+        group.fullname = request.form.get('fullname')
+        db.session.add(group)
+        db.session.commit()
+        db.session.close()
+        return redirect(url_for('info'))
+    else:
+        return render_template('change_group.html', group=group)
+
+
+@app.route('/del_group/<int:my_id>')
+def del_group(my_id):
+    Group.query.filter(Group.id == my_id).delete()
+    db.session.commit()
+    db.session.close()
+    return redirect(url_for('info'))
