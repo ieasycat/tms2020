@@ -25,9 +25,7 @@ def display_brand():
 
 
 def add_car():
-    model = input('Введите модель машины: ')
-
-    check = session.query(Car.model).filter_by(model=model).first()
+    check, model = check_car()
 
     if not check:
         release_year = int(input('Введите год машины: '))
@@ -44,10 +42,20 @@ def add_car():
     print()
 
 
-def add_brand():
-    name = input('Введите название бренда: ')
+def check_car():
+    model = input('Введите модель машины: ')
+    check = session.query(Car.model).filter_by(model=model).first()
+    return check, model
 
+
+def check_brand():
+    name = input('Введите название бренда: ')
     check = session.query(Brand).filter_by(name=name).first()
+    return check, name
+
+
+def add_brand():
+    check, name = check_brand()
 
     if not check:
         create_brand({'name': name})
@@ -63,11 +71,9 @@ def change_car():
     check_id = session.query(Car).filter_by(id=car_id).first()
 
     if check_id:
-        model = input('Введите модель машины: ')
+        check, model = check_car()
 
-        check_model = session.query(Car).filter_by(model=model).first()
-
-        if not check_model:
+        if not check:
             release_year = int(input('Введите год машины: '))
             print()
             display_brand()
@@ -91,12 +97,10 @@ def change_brand():
     print('Введите "0" для выхода в предыдущее меню.')
     brand_id = int(input('Выберите ID бренда, которую хотите изменить: '))
 
-    if not brand_id:
-        name = input('Введите название бренда: ')
+    if brand_id:
+        check, name = check_brand()
 
-        check_name = session.query(Brand.name).filter_by(name=name).first()
-
-        if not check_name:
+        if not check:
             update_brand(brand_id, name)
         else:
             raise WrongName
