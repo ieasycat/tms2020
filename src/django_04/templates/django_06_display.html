@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Full form {% endblock %}
+{% block content %}
+<table border=1>
+    <tr>
+        <td>Id</td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Old</td>
+    </tr>
+    <tr>
+        <td>{{ id }}</td>
+        <td>{{ firstname }}</td>
+        <td>{{ lastname }}</td>
+        <td>{{ old }}</td>
+    </tr>
+</table>
+{% endblock %}
