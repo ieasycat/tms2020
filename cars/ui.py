@@ -97,14 +97,16 @@ def change_brand():
     print('Введите "0" для выхода в предыдущее меню.')
     brand_id = int(input('Выберите ID бренда, которую хотите изменить: '))
 
-    if brand_id:
+    check_id = session.query(Brand).filter_by(id=brand_id).first()
+
+    if check_id:
         check, name = check_brand()
 
         if not check:
             update_brand(brand_id, name)
         else:
             raise WrongName
-    elif brand_id == 0:
+    elif check_id == 0:
         return
     else:
         raise IdError
