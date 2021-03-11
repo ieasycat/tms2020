@@ -35,3 +35,15 @@ class Student(models.Model):
 
     def __str__(self):
         return f'{self.pk} - {self.firstname} - {self.lastname} - {self.group.name}'
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=30)
+    quantity = models.IntegerField()
+    students = models.ManyToManyField(
+        Student,
+        related_name='books'
+    )
+
+    def __str__(self):
+        return f'{self.pk} - {self.title} - {self.quantity}'
