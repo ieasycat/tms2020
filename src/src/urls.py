@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('django_03.urls')),
     path('', include('django_04.urls')),
     path('', include('django_05.urls')),
+    path('', include('catdog.urls'))
 ]

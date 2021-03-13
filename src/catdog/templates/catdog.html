@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Voice</title>
+    <title>Main</title>
 </head>
 <body>
-    <form action="{ url_for ('catdog')}">
-        <div align="left">
+    <div align="center">
+        <form action="{% url 'cats' %}">
             <button>I love cats!</button>
-        </div>
-        <div align="right">
+        </form>
+        <form action="{% url 'dogs' %}">
             <button>I love dogs!</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 </html>
