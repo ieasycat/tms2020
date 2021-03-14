@@ -1,7 +1,5 @@
 from django.shortcuts import render
-import requests
-from catdog.models import AnimalImage
-from datetime import datetime
+from catdog.business_logic import getting_an_image, save_image
 
 # Create your views here.
 
@@ -11,30 +9,22 @@ def catdog(request):
 
 
 def cats(request):
-    data = requests.get('https://aws.random.cat/meow').json()
-    context = {
-        'data': data['file']
-    }
+    context, data = getting_an_image(url='https://aws.random.cat/meow', text='file')
+
     if request.method == 'GET':
         return render(request, 'cats.html', context)
     else:
         if request.POST.get('button') == 'save':
-            my_type = context['data'].split('.')[-1]
-            animal = AnimalImage(url=data['file'], species='cat', data_crate=datetime.now(), image_type=my_type)
-            animal.save()
+            save_image(context, data, text='file', view='cat')
             return render(request, 'cats.html', context)
 
 
 def dogs(request):
-    data = requests.get('https://dog.ceo/api/breeds/image/random').json()
-    context = {
-        'data': data['message']
-    }
+    context, data = getting_an_image(url='https://dog.ceo/api/breeds/image/random', text='message')
+
     if request.method == 'GET':
         return render(request, 'dogs.html', context)
     else:
         if request.POST.get('button') == 'save':
-            my_type = context['data'].split('.')[-1]
-            animal = AnimalImage(url=data['message'], species='dog', data_crate=datetime.now(), image_type=my_type)
-            animal.save()
+            save_image(context, data, text='message', view='dog')
             return render(request, 'dogs.html', context)
