@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_05',
     'app2',
     'school',
+    'catdog',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,7 @@ TEMPLATES = [
         'DIRS': [
             'templates',
             'django_04/templates',
+            'catdog/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Minsk'
 
 USE_I18N = True
 

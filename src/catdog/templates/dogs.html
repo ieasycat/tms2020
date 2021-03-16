@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dogs</title>
+</head>
+<body>
+    <div align="center">
+        <img src="{{ data }}">
+        <form action="{% url 'dogs' %}" method="post">
+                <button type="submit" name="button" value="save">Save</button>
+         </form>
+         <form action="{% url 'catdog' %}">
+                <button>Home</button>
+         </form>
+    </div>
+</body>
+</html>
