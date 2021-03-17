@@ -21,9 +21,18 @@ def api_products(request):
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
-def api_products_one(request, pk):
+@api_view(['GET', 'PUT', 'DELETE'])
+def api_product_one(request, pk):
+    product = Product.objects.get(pk=pk)
     if request.method == 'GET':
-        products = Product.objects.get(pk=pk)
-        serializers = ProductSerializers(products)
-        return Response(serializers.data)
+        serializer = ProductSerializers(product)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = ProductSerializers(product, request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        product.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
