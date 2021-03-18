@@ -1,7 +1,12 @@
-from django.urls import path
-from drf1.views import APIProducts, APIProductDetail
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from drf1.views import APIProducts
+
+
+route = DefaultRouter()
+route.register('products', APIProducts)
 
 urlpatterns = [
-    path('products/', APIProducts.as_view(), name='products'),
-    path('product/<int:pk>', APIProductDetail.as_view(), name='products'),
+    path('', include(route.urls)),
 ]
